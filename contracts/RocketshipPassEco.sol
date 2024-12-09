@@ -4,25 +4,24 @@ pragma solidity ^0.8.26;
 import "erc721a/contracts/ERC721A.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract BoredtopiaTBW2024 is ERC721A, Ownable {
+contract RocketshipPassEco is ERC721A, Ownable {
 
     // config
     constructor(address initialOwner)
-        ERC721A("Boredtopia TBW2024", "BTBW24")
+        ERC721A("Rocketship Pass Eco Class", "ECOPASS")
         Ownable(initialOwner) {
     }
-    uint256 public MAX_MINT_PER_WALLET = 3;
+    uint256 public MAX_MINT_PER_WALLET = 5;
     uint256 public START_ID = 1;
 
     bool public mintEnabled = false;
-    string public baseURI = "https://boredtopia.github.io/tbw2024/data.json";
+    string public baseURI = "https://boredtopia.github.io/rocketship-pass/eco.json";
 
     // start token id
     function _startTokenId() internal view virtual override returns (uint256) {
         return START_ID;
     }
 
-    // metadata
     // metadata
     function setBaseURI(string calldata _newBaseURI) external onlyOwner {
         baseURI = _newBaseURI;
